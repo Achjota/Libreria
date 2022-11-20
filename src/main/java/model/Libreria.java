@@ -1,20 +1,21 @@
 package model;
 
-import model.Articulos;
-import model.Cliente;
+import Utils.ValidadorRut;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Libreria {
 	private List<Cliente> clientes;
-	private List<Articulos> articulos;
+	private List<Articulo> articulos;
 		public Libreria() {
 			this.clientes=new ArrayList<Cliente>();
-			this.articulos= new ArrayList<Articulos>();
+			this.articulos= new ArrayList<Articulo>();
 		}
 		public List<Cliente> getClientes() {return clientes;}
 
-		public List<Articulos> getArticulos() {return articulos;}
+		public List<Articulo> getArticulos() {return articulos;}
 
 		public Cliente buscarCliente(String rut) {
 			Cliente cliente= null;
@@ -26,9 +27,9 @@ public class Libreria {
 			}
 			return (Cliente) clientes;
 		}
-		public Articulos buscarArticulos(String nombreArticulo){
-			Articulos articulos = null;
-			for (Articulos ariculosAux : this.articulos) {
+		public Articulo buscarArticulos(String nombreArticulo){
+			Articulo articulos = null;
+			for (Articulo ariculosAux : this.articulos) {
 				if (ariculosAux.getNombre().equals(nombreArticulo)) {
 					articulos = ariculosAux ;
 					break;
@@ -36,19 +37,20 @@ public class Libreria {
 			}
 			return articulos;
 		}
-		public Articulos añadirArticulos(String nombre, String tipoArticulo , double peso, double precio){
-			Articulos articulos= new Articulos(nombre);
+		public Articulo añadirArticulo(String nombre, String tipoArticulo , double peso, double precio){
+			String[] data = new String[0];
+			Articulo articulos= new Articulo(data[0], data[1], nombre);
 			this.articulos.add(articulos);
 			return articulos;
 		}
-		public List<Articulos> buscarNombreArticulo(String nombre) {
-			List<Articulos> articulos = new ArrayList<Articulos>();
-			for (Articulos articulos : this.articulos) {
-				if (articulos.getNombre().equals(nombre)) {
-					articulos.add(articulos);
-				}
+	public List<Articulo> buscarArticulo(String nombre) {
+		List<Articulo> articulos = new ArrayList<Articulo>();
+		for (Articulo articulo : this.articulos) {
+			if (Objects.equals(articulos.get(0), nombre)) {
+				articulos.add(articulo);
 			}
-			return articulos;
+		}
+		return articulos;
 		}
 		public List<Cliente> buscarClienteNombre(String nombre) {
 			List<Cliente> clientes = new ArrayList<Cliente>();
@@ -60,13 +62,21 @@ public class Libreria {
 			return clientes;
 		}
 
-		public boolean añadirCliente(String nombre,String rut,String correo) {
-			if (ValidadorRut.validarDigito(rut) && this.buscarCliente(rut)==null) {
-				Cliente cliente= new Cliente(nombre,rut,correo);
+		public boolean añadirCliente(String nombre,String campoRut, int correo) {
+			if (ValidadorRut.validarDigito(campoRut) && this.buscarCliente(campoRut)==null) {
+				Cliente cliente= new Cliente(nombre);
 				this.clientes.add(cliente);
 				return true;
 			} else {
 				return false;
 			}
 		}
+
+	public List<Articulo> buscarNombreArticulo(String s) {
+		return null;
 	}
+
+	public void añadirCliente(String text, campoRut selectedItem, int correo) {
+
+	}
+}

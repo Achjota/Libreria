@@ -5,6 +5,9 @@ public class Cliente {
 	private String rut;
 	private String correo;
 
+	public Cliente(String nombre) {
+	}
+
 	public String getNombreCliente() {
 		return this.nombreCliente;
 	}

@@ -51,32 +51,32 @@ public class VentanaBusquedaArticulo extends Ventana{
 		this.botonRegresar.addActionListener(this);
 	}
 	private String[][] registrarArticulo(){
-		List<Articulos> articulos= new ArrayList<>();
+		List<Articulo> articulos= new ArrayList<>();
 		String[][] datosArticulos;
 		if(this.campoNombre.getText().length()==0){
 			System.out.println(this.listaArticulo.getSelectedItem());
-			articulos= (List<Articulos>) libreria.buscarNombreArticulo(String.valueOf((NombreArticulo) this.listaArticulo.getSelectedItem()));
+			articulos= (List<Articulo>) libreria.buscarNombreArticulo(String.valueOf((NombreArticulo) this.listaArticulo.getSelectedItem()));
 		}
 		else{
-			articulos= .libreria.buscarNombreArticulo();
+			articulos= libreria.buscarNombreArticulo(String.valueOf((NombreArticulo) this.listaArticulo.getSelectedItem()));
 		}
 		System.out.println(articulos.size());
 		datosArticulos= new String[articulos.size()][6];
 		for(int i=0; i<articulos.size(); i++){
-			datosEstudiantes[i][0]=estudiantes.get(i).getNombre();
-			datosEstudiantes[i][1]=estudiantes.get(i).getRut();
-			datosEstudiantes[i][2]= Integer.toString(estudiantes.get(i).getNumeroMatricula());
-			datosEstudiantes[i][3]=estudiantes.get(i).getApellido();
+			datosArticulos[i][0]=articulos.get(i).getNombre();
+			datosArticulos[i][1]=articulos.get(i).getTipoArticulo();
+			datosArticulos[i][2]= Integer.toString((int) articulos.get(i).getPeso());
+			datosArticulos[i][3]= String.valueOf(articulos.get(i).getPrecio());
 		}
-		return datosEstudiantes;
+		return datosArticulos;
 	}
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == this.botonBuscar){
-			String[] nombreColumnas={"Nombre","Rut","Numero Matricula","Apellido"};
-			VentanaTabla ventanaTabla= new VentanaTabla(registrarEstudiante(),nombreColumnas);
+			String[] nombreColumnas={"Nombre","Tipo de Articulo","Peso","Precio"};
+			VentanaTabla ventanaTabla= new VentanaTabla(registrarArticulo(),nombreColumnas);
 		}
 		if (e.getSource() == this.botonRegresar){
-			VentanaBienvenida ventanaBienvenida = new VentanaBienvenida(universidad);
+			VentanaInicio ventanaInicio = new VentanaInicio(libreria);
 			this.dispose();
 		}
 

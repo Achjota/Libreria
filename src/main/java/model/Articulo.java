@@ -1,12 +1,12 @@
 package model;
 
-public class Articulos {
+public class Articulo {
 	private String nombre;
 	private String tipoArticulo;
 	private double peso;
 	private double precio;
 
-	public Articulos(String nombre) {
+	public Articulo(String s, String datum, String nombre) {
 	}
 
 	public String getNombre() {
@@ -41,6 +41,6 @@ public class Articulos {
 		this.precio=precio;
 	}
 
-	public void add(Articulos articulos) {
+	public void add(Articulo articulo) {
 	}
 }
