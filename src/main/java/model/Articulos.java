@@ -1,15 +1,20 @@
+package model;
+
 public class Articulos {
 	private String nombre;
 	private String tipoArticulo;
 	private double peso;
 	private double precio;
 
+	public Articulos(String nombre) {
+	}
+
 	public String getNombre() {
 		return this.nombre;
 	}
 
 	public void setNombre() {
-		throw new UnsupportedOperationException();
+		this.nombre=nombre;
 	}
 
 	public String getTipoArticulo() {
@@ -17,7 +22,7 @@ public class Articulos {
 	}
 
 	public void setTipoArticulo() {
-		throw new UnsupportedOperationException();
+		this.tipoArticulo=tipoArticulo;
 	}
 
 	public double getPeso() {
@@ -25,7 +30,7 @@ public class Articulos {
 	}
 
 	public void setPeso() {
-		throw new UnsupportedOperationException();
+		this.peso=peso;
 	}
 
 	public double getPrecio() {
@@ -33,6 +38,9 @@ public class Articulos {
 	}
 
 	public void setPrecio() {
-		throw new UnsupportedOperationException();
+		this.precio=precio;
+	}
+
+	public void add(Articulos articulos) {
 	}
 }

@@ -1,3 +1,5 @@
+package model;
+
 public class Cliente {
 	private String nombreCliente;
 	private String rut;
@@ -8,7 +10,7 @@ public class Cliente {
 	}
 
 	public void setNombreCliente() {
-		throw new UnsupportedOperationException();
+		this.nombreCliente=nombreCliente;
 	}
 
 	public String getRut() {
@@ -16,7 +18,7 @@ public class Cliente {
 	}
 
 	public void setRut() {
-		throw new UnsupportedOperationException();
+		this.rut=rut;
 	}
 
 	public String getCorreo() {
@@ -24,6 +26,6 @@ public class Cliente {
 	}
 
 	public void setCorreo() {
-		throw new UnsupportedOperationException();
+		this.correo=correo;
 	}
 }
