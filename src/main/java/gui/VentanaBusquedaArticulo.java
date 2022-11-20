@@ -2,6 +2,7 @@ package gui;
 
 import controller.LibreriaController;
 import model.*;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -70,7 +71,7 @@ public class VentanaBusquedaArticulo extends Ventana{
 		}
 		return datosArticulos;
 	}
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(@NotNull ActionEvent e) {
 		if(e.getSource() == this.botonBuscar){
 			String[] nombreColumnas={"Nombre","Tipo de Articulo","Peso","Precio"};
 			VentanaTabla ventanaTabla= new VentanaTabla(registrarArticulo(),nombreColumnas);

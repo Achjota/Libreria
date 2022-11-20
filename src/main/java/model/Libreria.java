@@ -37,7 +37,7 @@ public class Libreria {
 			}
 			return articulos;
 		}
-		public Articulo añadirArticulo(String nombre, String tipoArticulo , double peso, double precio){
+		public boolean añadirArticulo(String nombre, String tipoArticulo , double peso, double precio){
 			String[] data = new String[0];
 			Articulo articulos= new Articulo(data[0], data[1], nombre);
 			this.articulos.add(articulos);
