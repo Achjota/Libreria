@@ -37,7 +37,7 @@ public class Libreria {
 			}
 			return articulos;
 		}
-		public boolean añadirArticulo(String nombre, String tipoArticulo , double peso, double precio){
+		public Articulo añadirArticulo(String nombre, String tipoArticulo , String peso, String precio){
 			String[] data = new String[0];
 			Articulo articulos= new Articulo(data[0], data[1], nombre);
 			this.articulos.add(articulos);
@@ -78,5 +78,9 @@ public class Libreria {
 
 	public void añadirCliente(String text, campoRut selectedItem, int correo) {
 
+	}
+
+	public boolean añadirArticulo(String textoNombre, String textoTipoArticulo, double parsePeso, double parsePrecio) {
+		return false;
 	}
 }

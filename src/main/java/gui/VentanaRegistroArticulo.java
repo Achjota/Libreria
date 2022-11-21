@@ -72,13 +72,12 @@ public class VentanaRegistroArticulo extends Ventana{
 	}
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == this.botonRegistrar) {
-			if(registrarArticulo()) {
+			if (registrarArticulo()) {
+				JOptionPane.showMessageDialog(this,"Ingrese un articulo válido");
+			} else {
 				JOptionPane.showMessageDialog(this,"Articulo registrado correctamente");
 				VentanaInicio ventanaInicio = new VentanaInicio(libreria);
 				this.dispose();
-			}
-			else{
-				JOptionPane.showMessageDialog(this,"Ingrese un articulo válido");
 			}
 
 		}
